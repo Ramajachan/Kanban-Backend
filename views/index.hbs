@@ -1,0 +1,21 @@
+<h1>Add Task</h1>
+<form action="/create" method="post">
+    <input type="text" id="name" name="name" placeholder="Task name" required><br>
+    <input type="text" id="description" name="description" placeholder="Description"><br>
+    <input type="text" id="status" name="status" placeholder="Status" value="backlog" hidden><br>
+    <button type="submit">Add task</button>
+</form>
+
+<h1><br><br>Show Backlog</h1>
+<a href="/read" name="redirect">DISP</a>
+<div>
+  {{# each items }}
+  <article class="item">
+    <div>Name: {{ this.name }}</div>
+    <div>Description: {{ this.description }}</div>
+    <div>Status: {{ this.status }}</div>
+      <a href='/delete/{{this._id}}'><button>Delete</button></a>
+    </form><br><br>
+  </article>
+  {{/each}}
+</div>
